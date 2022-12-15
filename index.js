@@ -1,21 +1,31 @@
 import express  from "express";
 
 const app = express();
+
 app.use(express.json());
 
-app.get('/name',(req,res)=>{
-    res.send("jagruti Mahajan");
+app.get('/coffee',(req,res)=>{
+    //res.send("Cold coffee ☕");
+
+    
+    res.json({
+        menu:"Cold Coffee ☕",
+        price:"Rs 30"
+    })
 })
 
-app.get('/college', (req,res)=>{
-    res.send("RGCER");
-})
+app.post('/coffee',(req,res)=>{
 
-app.get('/branch', (req,res)=>{
-    res.send("CSE");
-})
+    //console.log(req.body);
 
+    const tableNumber =req.body.tableNumber;
+    const coffeeType = req.body.coffeeType;
+
+    res.json({
+        orderDetails:`Table ${tableNumber} ordered a ${coffeeType}`
+    })
+})
 
 app.listen(5000, ()=>{
-      console.log("Server is running on port 5000")
+      console.log("Server is listening on port 5000")
 })
