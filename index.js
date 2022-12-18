@@ -16,7 +16,14 @@ const db = [{
     title: 'Dosa',
     price: 20,
     category: 'breakfast'
-}]
+},
+{
+    id: 3,
+    title: 'Biryani',
+    price: 200,
+    category: 'lunch'
+}
+]
 
 //get all items
 app.get('/all-food-items', (req, res) => {
