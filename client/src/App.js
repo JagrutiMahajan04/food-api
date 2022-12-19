@@ -1,28 +1,23 @@
 import React, {useState} from  'react'
-import axios from 'axios'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+import Show from './views/Show/Show'
+import Add from './views/Add/Add'
 
 function App() {
      
-  const [foodItems, setFoodItems] = useState([])
-  //api req
-  async function loadData() {
-    const response = await axios.get('/food-items-by-category?category=lunch')
-    console.log(response.data.data)
-    setFoodItems(response.data.data)
-  }
-
-
-  return (
+  return(
     <div>
-      <h1>Food API</h1>
-      <button onClick={loadData}>Make API Call</button>
-      {
-        foodItems.map((item)=>{
-          return (<h1>{item.title}</h1>)
-        })
-      }
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Show/>}/>
+        <Route path="/add" element={<Add/>}/>
+      </Routes>
+      </BrowserRouter>
+
     </div>
   )
+  
 }
 
 export default App

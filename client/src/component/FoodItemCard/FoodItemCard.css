@@ -1,0 +1,7 @@
+.food-item-card{
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    width: 200px;
+}
