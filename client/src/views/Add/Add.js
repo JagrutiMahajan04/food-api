@@ -9,11 +9,11 @@ function Add(){
     const [price, setPrice]= useState("")
 
      async function addFoodItem(){
-        const response = await axios.post('/add-food-item',{
-            "id":id,
-            "title":title,
-            "category":category,
-            "price":price
+        const response = await axios.post('/all-food-items',{
+            id:id,
+            title:title,
+            category:category,
+            price:price
         })
         if(response){
             alert('Item added sucesfully')
